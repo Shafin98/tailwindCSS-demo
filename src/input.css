@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities; 
+
+
+
+@layer components {
+    /* group utilization */
+    .btn{
+        /* if we want to apply extra padding or anything like that
+        we would need to do that by using @apply, it is because tailwind
+        does prioritize most specific command */
+        @apply px-4 py-1 border rounded-full 
+        text-sm transform hover:scale-105 duration-200 
+        hover:text-white
+        font-semibold hover:border-transparent 
+        focus:outline-none focus:ring-2 focus:ring-offset-2 
+        dark:focus:ring-offset-gray-800
+        dark:focus:border-transparent;
+    }
+
+    .btn-purple{
+        @apply border-purple-200
+        shadow-lg
+        shadow-purple-500
+        text-purple-600
+        hover:bg-purple-600  
+        focus:ring-purple-600 focus:ring-offset-2 
+        dark:text-purple-400;
+    }
+
+    .btn-green{
+        @apply border-green-200
+        shadow-lg
+        shadow-green-500
+        text-green-600
+        hover:bg-green-600  
+        focus:ring-green-600 focus:ring-offset-2 
+        dark:text-green-400;
+    }
+}
+
+@layer base {
+    /* if we use custome uitility then it will overwrite
+    whatever we have in the base layer */ 
+    h1 {
+        @apply text-2xl
+    }
+}
+
+@layer utilities{
+    /* make your own custom utilities */
+    .text-body{
+        font-size: 12px;
+    }
+}
+
+/* For custom class if we want to use something like 
+   hover or focus then we must use @variants hover, focus
+   then use {"inside here will be the custom class"} */
+
+/* For every break point if we want custom utility 
+   we can use @responsive */
+
+/* If we want to use for only one break point then 
+   we can use @screen or screen() {screen() is a function} */
